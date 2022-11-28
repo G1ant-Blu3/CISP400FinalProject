@@ -10,6 +10,10 @@ int main()
     resolution.y = VideoMode::getDesktopMode().height;
 
     RenderWindow window(VideoMode(resolution.x, resolution.y), "Final Project", Style::Default);
+    Texture background;
+    background.loadFromFile("graphics/background.png");
+    Sprite s_background;
+    s_background.setTexture(background);
 
     PlayerOne playerOne;
     PlayerTwo playerTwo;
@@ -36,6 +40,7 @@ int main()
         playerTwo.movement(dtAsSeconds, window);
 
         window.clear();
+        window.draw(s_background);
         window.draw(playerOne.getSprite());
         window.draw(playerTwo.getSprite());
         window.display();
