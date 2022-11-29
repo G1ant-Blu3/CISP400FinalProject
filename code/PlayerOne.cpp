@@ -26,7 +26,6 @@ void PlayerOne::movement(float elapsedTime, RenderWindow& window)
             isJumping = true;
             timeOfCurrentJump = 0.0;
         }
-        //jump(elapsedTime, window);
     }
     jump(elapsedTime, window);
     if(Keyboard::isKeyPressed(Keyboard::A))
