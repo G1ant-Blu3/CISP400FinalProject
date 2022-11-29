@@ -2,9 +2,14 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
-int Character::getHealth()
+float Character::getSpeed()
 {
-    return health;
+    return speed;
+}
+
+float Character::getGravity()
+{
+    return gravity;
 }
 
 Vector2f Character::getPosition()

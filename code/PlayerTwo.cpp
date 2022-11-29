@@ -1,9 +1,9 @@
 #include "PlayerTwo.h"
-#include <SFML/Graphics.hpp>
 using namespace sf;
 
 PlayerTwo::PlayerTwo()
 {
+    jumpDuration = 0.25;
     characterTexture.loadFromFile("graphics/Punk_idle.png");
     IntRect rectangle(5, 14, 17, 34);
     characterSprite.setTexture(characterTexture);
@@ -19,12 +19,21 @@ void PlayerTwo::spawn(RenderWindow& window)
 
 void PlayerTwo::movement(float elapsedTime, RenderWindow& window)
 {
+    if(Keyboard::isKeyPressed(Keyboard::Up))
+    {
+        if(!isJumping && !isFalling)
+        {
+            isJumping = true;
+            timeOfCurrentJump = 0.0;
+        }
+    }
+    jump(elapsedTime, window);
     if(Keyboard::isKeyPressed(Keyboard::Left))
     {
         if(position.x >= characterSprite.getGlobalBounds().width)
         {
             characterSprite.setScale(-5.0, 5.0);
-            position.x -= speed * elapsedTime;
+            position.x -= getSpeed() * elapsedTime;
         }
         characterSprite.setPosition(position);
     }
@@ -34,7 +43,7 @@ void PlayerTwo::movement(float elapsedTime, RenderWindow& window)
         if(position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
         {
             characterSprite.setScale(5.0, 5.0);
-            position.x += speed * elapsedTime;
+            position.x += getSpeed() * elapsedTime;
         }
         characterSprite.setPosition(position);
     }

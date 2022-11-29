@@ -1,9 +1,9 @@
 #include "PlayerOne.h"
-#include <SFML/Graphics.hpp>
 using namespace sf;
 
 PlayerOne::PlayerOne()
 {
+    jumpDuration = 0.5;
     characterTexture.loadFromFile("graphics/Biker_idle.png");
     IntRect rectangle(4, 14, 19, 34);
     characterSprite.setTexture(characterTexture);
@@ -19,12 +19,22 @@ void PlayerOne::spawn(RenderWindow& window)
 
 void PlayerOne::movement(float elapsedTime, RenderWindow& window)
 {
+    if(Keyboard::isKeyPressed(Keyboard::W))
+    {
+        if(!isJumping && !isFalling)
+        {
+            isJumping = true;
+            timeOfCurrentJump = 0.0;
+        }
+        //jump(elapsedTime, window);
+    }
+    jump(elapsedTime, window);
     if(Keyboard::isKeyPressed(Keyboard::A))
     {
         if(position.x >= characterSprite.getGlobalBounds().width)
         {
             characterSprite.setScale(-5.0, 5.0);
-            position.x -= speed * elapsedTime;
+            position.x -= getSpeed() * elapsedTime;
         }
         characterSprite.setPosition(position);
     }
@@ -34,7 +44,7 @@ void PlayerOne::movement(float elapsedTime, RenderWindow& window)
         if(position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
         {
             characterSprite.setScale(5.0, 5.0);
-            position.x += speed * elapsedTime;
+            position.x += getSpeed() * elapsedTime;
         }
         characterSprite.setPosition(position);
     }
