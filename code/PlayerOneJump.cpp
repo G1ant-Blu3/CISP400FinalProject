@@ -10,7 +10,7 @@ void PlayerOne::jump(float elapsedTime, RenderWindow& window)
 
         if(timeOfCurrentJump < jumpDuration)
         {
-            position.y -= getGravity() * 1.5 * elapsedTime;
+            position.y -= getGravity() * 2.0 * elapsedTime;
         }
         else
         {

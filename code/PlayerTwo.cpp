@@ -3,7 +3,7 @@ using namespace sf;
 
 PlayerTwo::PlayerTwo()
 {
-    jumpDuration = 0.25;
+    jumpDuration = 0.5;
     characterTexture.loadFromFile("graphics/Punk_idle.png");
     IntRect rectangle(5, 14, 17, 34);
     characterSprite.setTexture(characterTexture);

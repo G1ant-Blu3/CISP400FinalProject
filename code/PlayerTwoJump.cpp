@@ -10,7 +10,7 @@ void PlayerTwo::jump(float elapsedTime, RenderWindow& window)
 
         if(timeOfCurrentJump < jumpDuration)
         {
-            position.y -= getGravity() * 3.0 * elapsedTime;
+            position.y -= getGravity() * 2.0 * elapsedTime;
         }
         else
         {
@@ -23,7 +23,7 @@ void PlayerTwo::jump(float elapsedTime, RenderWindow& window)
     {
         if(position.y < window.getSize().y - characterSprite.getGlobalBounds().height)
         {
-            position.y += getGravity() * 2.0 * elapsedTime;
+            position.y += getGravity() * elapsedTime;
             if(position.y >= window.getSize().y - characterSprite.getGlobalBounds().height)
             {
                 position.y = window.getSize().y - characterSprite.getGlobalBounds().height;
