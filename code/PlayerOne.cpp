@@ -1,5 +1,7 @@
 #include "PlayerOne.h"
 using namespace sf;
+#include "tile.h"
+#include "drawmap.h"
 
 PlayerOne::PlayerOne()
 {

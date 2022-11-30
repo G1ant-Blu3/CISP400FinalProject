@@ -22,4 +22,4 @@ class Character
     private:
         float speed = 1000.0;
         float gravity = 300.0;
-};
+};  

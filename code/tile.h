@@ -1,3 +1,4 @@
+#pragma onced
 #include <SFML/Graphics.hpp>
 
 class tile {
@@ -8,7 +9,7 @@ public:
 	sf::Texture tiletexture;
 	sf::Sprite sprite;
 	sf::Sprite returnsprite();
-
+	
 
 
 
