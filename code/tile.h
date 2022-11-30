@@ -1,4 +1,4 @@
-#pragma onced
+#pragma once
 #include <SFML/Graphics.hpp>
 
 class tile {

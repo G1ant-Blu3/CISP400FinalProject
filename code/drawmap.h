@@ -12,8 +12,9 @@ public:
 	void createmap(sf::Vector2i pos);
 	void deletemap();
 	void checkmouse(RenderWindow& window);
+	void addbounds();
 	std::vector<tile*> tilevector;
-
+	std::vector<sf::FloatRect> wallBounds;
 
 private: 
 	
