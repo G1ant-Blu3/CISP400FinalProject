@@ -4,7 +4,7 @@ using namespace sf;
 PlayerOne::PlayerOne()
 {
     jumpDuration = 0.5;
-    characterTexture.loadFromFile("graphics/Biker_idle.png");
+    characterTexture.loadFromFile("graphics/biker_idle.png");
     IntRect rectangle(4, 14, 19, 34);
     characterSprite.setTexture(characterTexture);
     characterSprite.setTextureRect(rectangle);
@@ -32,7 +32,7 @@ void PlayerOne::movement(float elapsedTime, RenderWindow& window)
     {
         if(position.x >= characterSprite.getGlobalBounds().width)
         {
-            characterSprite.setScale(-5.0, 5.0);
+            characterSprite.setScale(-5.0 , 5.0);
             position.x -= getSpeed() * elapsedTime;
         }
         characterSprite.setPosition(position);
