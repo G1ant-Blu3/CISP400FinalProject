@@ -5,7 +5,7 @@ using namespace sf;
 PlayerOne::PlayerOne()
 {
     jumpDuration = 0.5;
-    characterTexture.loadFromFile("graphics/biker_idle.png");
+    characterTexture.loadFromFile("graphics/Biker_idle.png");
     IntRect rectangle(4, 14, 19, 34);
     characterSprite.setTexture(characterTexture);
     characterSprite.setTextureRect(rectangle);
@@ -18,7 +18,7 @@ void PlayerOne::spawn(RenderWindow& window)
     characterSprite.setPosition(position);
 }
 
-void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map)
+void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer)
 {
     jumpcalc(elapsedTime,window, map); //has to be included in a loop in the game for physics to be calculated
     if(Keyboard::isKeyPressed(Keyboard::W))
@@ -29,12 +29,12 @@ void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map)
     
     if(Keyboard::isKeyPressed(Keyboard::A))
     {
-        moveleft(elapsedTime, window, map);
+        moveleft(elapsedTime, window, map, otherPlayer);
     }
 
     if(Keyboard::isKeyPressed(Keyboard::D))
     {
         
-        moveright(elapsedTime, window, map);
+        moveright(elapsedTime, window, map, otherPlayer);
     }
 }

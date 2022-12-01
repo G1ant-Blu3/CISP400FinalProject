@@ -1,4 +1,3 @@
-#pragma once
 #include <SFML/Graphics.hpp>
 #include "Character.h" // ensure header files are here before SFML is define
 
@@ -25,25 +24,35 @@ Sprite Character::getSprite()
 {
     return characterSprite;
 }
-void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map) {
+void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
 
     if (position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
     {
         characterSprite.setScale(5.0, 5.0);
-        position.x += getSpeed() * elapsedTime;
+        float offset = getSpeed() * elapsedTime;
+        FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+        if(!rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
+        {
+            position.x += offset; 
+            characterSprite.setPosition(position);
+        }
     }
-
-    characterSprite.setPosition(position);
 }
-void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& bound) {
+
+void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
     
     if (position.x >= characterSprite.getGlobalBounds().width)
     {
         characterSprite.setScale(-5.0, 5.0);
-        position.x -= getSpeed() * elapsedTime;
+        float offset = getSpeed() * elapsedTime;
+        FloatRect rectangle(Vector2f(position.x - offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+        if(!rectangle.intersects(FloatRect(otherPlayer.getSprite().getGlobalBounds().left + otherPlayer.getSprite().getGlobalBounds().width,
+            otherPlayer.getSprite().getGlobalBounds().top, otherPlayer.getSprite().getGlobalBounds().width, otherPlayer.getSprite().getGlobalBounds().height)))
+        {
+            position.x -= offset;
+            characterSprite.setPosition(position);
+        }
     }
-    characterSprite.setPosition(position);
-
 }
 void Character::jump(float elapsedTime, RenderWindow& window, drawmap& map) //needs jumpcalc(elapsedTime,window); for it to work
 {
@@ -75,8 +84,9 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map) 
     {
         if (position.y < window.getSize().y - characterSprite.getGlobalBounds().height)
         {
+            
             position.y += getGravity() * elapsedTime;
-            if (position.y >= window.getSize().y - characterSprite.getGlobalBounds().height)
+            if(position.y >= window.getSize().y - characterSprite.getGlobalBounds().height)
             {
                 position.y = window.getSize().y - characterSprite.getGlobalBounds().height;
                 isFalling = false;

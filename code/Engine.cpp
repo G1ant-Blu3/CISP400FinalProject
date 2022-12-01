@@ -47,8 +47,8 @@ void engine::run() {
             }
             
             map.checkmouse(window);
-            playerOne.movement(dtAsSeconds, window,map);
-            playerTwo.movement(dtAsSeconds, window,map);
+            playerOne.movement(dtAsSeconds, window, map, playerTwo);
+            playerTwo.movement(dtAsSeconds, window, map, playerOne);
 
             window.clear();
             window.draw(s_background);

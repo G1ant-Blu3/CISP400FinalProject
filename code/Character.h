@@ -14,10 +14,10 @@ class Character
         float getSpeed();
         float getGravity();
         void jumpcalc(float elapsedTime, RenderWindow& window,drawmap& map);
-        void virtual movement(float elapsedTime, RenderWindow& window,drawmap& map) = 0;
+        void virtual movement(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer) = 0;
         
-        void moveleft(float elapsedTime, RenderWindow& window,drawmap& map);
-        void moveright(float elapsedTime, RenderWindow& window,drawmap& map);
+        void moveleft(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
+        void moveright(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
     protected:
         Texture characterTexture;
         Sprite characterSprite;

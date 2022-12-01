@@ -18,23 +18,23 @@ void PlayerTwo::spawn(RenderWindow& window)
     characterSprite.setPosition(position);
 }
 
-void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map)
+void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer)
 {
     jumpcalc(elapsedTime, window, map);
     if(Keyboard::isKeyPressed(Keyboard::Up))
     {
-        jump(elapsedTime, window,map);
+        jump(elapsedTime, window, map);
 
     }
     
     if(Keyboard::isKeyPressed(Keyboard::Left))
     {
-        moveleft(elapsedTime, window,map);
+        moveleft(elapsedTime, window, map, otherPlayer);
     }
 
     if(Keyboard::isKeyPressed(Keyboard::Right))
     {
-        moveright(elapsedTime, window,map);
+        moveright(elapsedTime, window, map, otherPlayer);
     }
 
 }
