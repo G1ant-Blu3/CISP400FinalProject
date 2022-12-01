@@ -5,12 +5,17 @@ using namespace sf;
 class Character
 {
     public:
-        void virtual movement(float elapsedTime, RenderWindow& window) = 0;
-        void virtual jump(float elapsedTime, RenderWindow& window) = 0;
+        
+        void jump(float elapsedTime, RenderWindow& window);
         Vector2f getPosition();
         Sprite getSprite();
         float getSpeed();
         float getGravity();
+        void jumpcalc(float elapsedTime, RenderWindow& window);
+        void virtual movement(float elapsedTime, RenderWindow& window) = 0;
+        
+        void moveleft(float elapsedTime, RenderWindow& window);
+        void moveright(float elapsedTime, RenderWindow& window);
     protected:
         Texture characterTexture;
         Sprite characterSprite;

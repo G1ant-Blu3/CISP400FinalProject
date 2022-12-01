@@ -9,5 +9,5 @@ class PlayerOne : public Character
         PlayerOne();
         void spawn(RenderWindow& window);
         void virtual movement(float elapsedTime, RenderWindow& window);
-        void virtual jump(float elapsedTime, RenderWindow& window);
+        
 };

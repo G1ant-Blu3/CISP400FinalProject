@@ -21,32 +21,21 @@ void PlayerOne::spawn(RenderWindow& window)
 
 void PlayerOne::movement(float elapsedTime, RenderWindow& window)
 {
+    jumpcalc(elapsedTime,window); //has to be included in a loop in the game for physics to be calculated
     if(Keyboard::isKeyPressed(Keyboard::W))
     {
-        if(!isJumping && !isFalling)
-        {
-            isJumping = true;
-            timeOfCurrentJump = 0.0;
-        }
+       
+        jump(elapsedTime,window);
     }
-    jump(elapsedTime, window);
+    
     if(Keyboard::isKeyPressed(Keyboard::A))
     {
-        if(position.x >= characterSprite.getGlobalBounds().width)
-        {
-            characterSprite.setScale(-5.0 , 5.0);
-            position.x -= getSpeed() * elapsedTime;
-        }
-        characterSprite.setPosition(position);
+        moveleft(elapsedTime, window);
     }
 
     if(Keyboard::isKeyPressed(Keyboard::D))
     {
-        if(position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
-        {
-            characterSprite.setScale(5.0, 5.0);
-            position.x += getSpeed() * elapsedTime;
-        }
-        characterSprite.setPosition(position);
+        
+        moveright(elapsedTime, window);
     }
 }

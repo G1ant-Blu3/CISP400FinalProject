@@ -19,32 +19,21 @@ void PlayerTwo::spawn(RenderWindow& window)
 
 void PlayerTwo::movement(float elapsedTime, RenderWindow& window)
 {
+    jumpcalc(elapsedTime, window);
     if(Keyboard::isKeyPressed(Keyboard::Up))
     {
-        if(!isJumping && !isFalling)
-        {
-            isJumping = true;
-            timeOfCurrentJump = 0.0;
-        }
+        jump(elapsedTime, window);
+
     }
-    jump(elapsedTime, window);
+    
     if(Keyboard::isKeyPressed(Keyboard::Left))
     {
-        if(position.x >= characterSprite.getGlobalBounds().width)
-        {
-            characterSprite.setScale(-5.0, 5.0);
-            position.x -= getSpeed() * elapsedTime;
-        }
-        characterSprite.setPosition(position);
+        moveleft(elapsedTime, window);
     }
 
     if(Keyboard::isKeyPressed(Keyboard::Right))
     {
-        if(position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
-        {
-            characterSprite.setScale(5.0, 5.0);
-            position.x += getSpeed() * elapsedTime;
-        }
-        characterSprite.setPosition(position);
+        moveright(elapsedTime, window);
     }
+
 }
