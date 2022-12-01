@@ -15,18 +15,20 @@ void engine::run() {
         resolution.x = VideoMode::getDesktopMode().width;
         resolution.y = VideoMode::getDesktopMode().height;
 
+
         RenderWindow window(VideoMode(resolution.x, resolution.y), "Final Project", Style::Default);
         Texture background;
         background.loadFromFile("graphics/background.png");
         Sprite s_background;
         s_background.setTexture(background);
+        drawmap map;
 
         PlayerOne playerOne;
         PlayerTwo playerTwo;
         playerOne.spawn(window);
         playerTwo.spawn(window);
 
-        drawmap map;
+        
 
         Clock clock;
 
@@ -45,8 +47,8 @@ void engine::run() {
             }
             
             map.checkmouse(window);
-            playerOne.movement(dtAsSeconds, window);
-            playerTwo.movement(dtAsSeconds, window);
+            playerOne.movement(dtAsSeconds, window,map);
+            playerTwo.movement(dtAsSeconds, window,map);
 
             window.clear();
             window.draw(s_background);

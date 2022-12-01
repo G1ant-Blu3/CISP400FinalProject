@@ -1,4 +1,5 @@
 #include "PlayerTwo.h"
+#include "drawmap.h"
 using namespace sf;
 
 PlayerTwo::PlayerTwo()
@@ -17,23 +18,23 @@ void PlayerTwo::spawn(RenderWindow& window)
     characterSprite.setPosition(position);
 }
 
-void PlayerTwo::movement(float elapsedTime, RenderWindow& window)
+void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map)
 {
-    jumpcalc(elapsedTime, window);
+    jumpcalc(elapsedTime, window, map);
     if(Keyboard::isKeyPressed(Keyboard::Up))
     {
-        jump(elapsedTime, window);
+        jump(elapsedTime, window,map);
 
     }
     
     if(Keyboard::isKeyPressed(Keyboard::Left))
     {
-        moveleft(elapsedTime, window);
+        moveleft(elapsedTime, window,map);
     }
 
     if(Keyboard::isKeyPressed(Keyboard::Right))
     {
-        moveright(elapsedTime, window);
+        moveright(elapsedTime, window,map);
     }
 
 }

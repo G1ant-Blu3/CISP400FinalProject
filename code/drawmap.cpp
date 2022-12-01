@@ -1,5 +1,7 @@
 #include "drawmap.h"
 #include <iostream>
+#include <SFML/Graphics.hpp>
+#include "engine.h"
 using namespace std;
 
 drawmap::drawmap() {
@@ -23,7 +25,7 @@ void drawmap::deletemap() {
 	wallBounds.clear();
 	// this does not clear memory, but removes the tiles from the container
 }
-void drawmap::checkmouse(RenderWindow& window) {
+void drawmap::checkmouse(sf::RenderWindow& window) {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		bool draw = true;

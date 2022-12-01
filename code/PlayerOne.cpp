@@ -1,7 +1,6 @@
 #include "PlayerOne.h"
 using namespace sf;
 #include "tile.h"
-#include "drawmap.h"
 
 PlayerOne::PlayerOne()
 {
@@ -19,23 +18,23 @@ void PlayerOne::spawn(RenderWindow& window)
     characterSprite.setPosition(position);
 }
 
-void PlayerOne::movement(float elapsedTime, RenderWindow& window)
+void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map)
 {
-    jumpcalc(elapsedTime,window); //has to be included in a loop in the game for physics to be calculated
+    jumpcalc(elapsedTime,window, map); //has to be included in a loop in the game for physics to be calculated
     if(Keyboard::isKeyPressed(Keyboard::W))
     {
        
-        jump(elapsedTime,window);
+        jump(elapsedTime,window,map);
     }
     
     if(Keyboard::isKeyPressed(Keyboard::A))
     {
-        moveleft(elapsedTime, window);
+        moveleft(elapsedTime, window, map);
     }
 
     if(Keyboard::isKeyPressed(Keyboard::D))
     {
         
-        moveright(elapsedTime, window);
+        moveright(elapsedTime, window, map);
     }
 }
