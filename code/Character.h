@@ -26,5 +26,5 @@ class Character
         bool isFalling = false;
     private:
         float speed = 1000.0;
-        float gravity = 300.0;
+        float gravity = 600.0;
 };  
