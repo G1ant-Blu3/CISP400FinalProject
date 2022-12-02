@@ -25,33 +25,63 @@ Sprite Character::getSprite()
     return characterSprite;
 }
 void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
-
+    float offset = getSpeed() * elapsedTime;
+    bool colision = false;
     if (position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
     {
-        characterSprite.setScale(5.0, 5.0);
-        float offset = getSpeed() * elapsedTime;
+        //characterSprite.setScale(5.0, 5.0); displaces the image then where it actually is
+        
         FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-        if(!rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
+        if(rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
         {
-            position.x += offset; 
-            characterSprite.setPosition(position);
+            colision = true;
+            
+        }
+        for (int i = 0; i < map.wallBounds.size(); i++)
+        {
+            FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+            if (rectangle.intersects(map.wallBounds[i]))
+            {
+              colision = true;
+            }
         }
     }
+        if (colision == false)
+        {
+            position.x += offset;
+            characterSprite.setPosition(position);
+        }
+   
 }
 
 void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
-    
+
+    float offset = getSpeed() * elapsedTime;
+    bool colision = false;
     if (position.x >= characterSprite.getGlobalBounds().width)
     {
-        characterSprite.setScale(-5.0, 5.0);
-        float offset = getSpeed() * elapsedTime;
+        // characterSprite.setScale(-5.0, 5.0); This function messes with collision, find a different way to rotate the rectangle without messing up the cords
+        
         FloatRect rectangle(Vector2f(position.x - offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-        if(!rectangle.intersects(FloatRect(otherPlayer.getSprite().getGlobalBounds().left + otherPlayer.getSprite().getGlobalBounds().width,
+        if(rectangle.intersects(FloatRect(otherPlayer.getSprite().getGlobalBounds().left + otherPlayer.getSprite().getGlobalBounds().width,
             otherPlayer.getSprite().getGlobalBounds().top, otherPlayer.getSprite().getGlobalBounds().width, otherPlayer.getSprite().getGlobalBounds().height)))
         {
-            position.x -= offset;
-            characterSprite.setPosition(position);
+            colision = true;
         }
+        for (int i = 0; i < map.wallBounds.size(); i++)
+        {
+            
+            if(rectangle.intersects(map.wallBounds[i]))
+            {
+                colision = true;
+                
+            }
+        }
+    }
+    if(colision == false) 
+    {
+        position.x -= offset;
+        characterSprite.setPosition(position);
     }
 }
 void Character::jump(float elapsedTime, RenderWindow& window, drawmap& map) //needs jumpcalc(elapsedTime,window); for it to work
