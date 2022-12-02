@@ -20,11 +20,7 @@ void PlayerTwo::spawn(RenderWindow& window)
 
 void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer)
 {
-    if(isJumping || isFalling)
-    { 
-        jumpcalc(elapsedTime, window, map, otherPlayer);
-    }
-    
+    jumpcalc(elapsedTime, window, map, otherPlayer);
     if(Keyboard::isKeyPressed(Keyboard::Up))
     {
         jump(elapsedTime, window, map);
