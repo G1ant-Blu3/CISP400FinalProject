@@ -64,14 +64,27 @@ void Character::jump(float elapsedTime, RenderWindow& window, drawmap& map) //ne
  
 }
 // has to be in a movement loop for it to calcuate during the game
-void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map) {
+void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
     if (isJumping)
     {
         timeOfCurrentJump += elapsedTime;
 
         if (timeOfCurrentJump < jumpDuration)
         {
-            position.y -= getGravity() * 1.5 * elapsedTime;
+            float offset = getGravity() * 1.5 * elapsedTime;
+            FloatRect rectangle(Vector2f(position.x, position.y - offset), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+            if(!rectangle.intersects(FloatRect(otherPlayer.getSprite().getGlobalBounds().left, 
+                otherPlayer.getSprite().getGlobalBounds().top + otherPlayer.getSprite().getGlobalBounds().height,
+                otherPlayer.getSprite().getGlobalBounds().width, 1.0))) //detects the feet of the other player
+            {
+                position.y -= offset;
+                characterSprite.setPosition(position);
+            }
+            else
+            {
+                isJumping = false;
+                isFalling = true;
+            }
         }
         else
         {
@@ -83,16 +96,22 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map) 
     if (isFalling)
     {
         if (position.y < window.getSize().y - characterSprite.getGlobalBounds().height)
-        {
+        {  
+            float offset = getGravity() * elapsedTime;
+            FloatRect rectangle(Vector2f(position.x, position.y + offset), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+            if(!rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
+            //need to figure this part out. collision detection works where player can stand on top of other player buts can't jump again until they reach the ground
+            {
+                position.y += offset;
+                characterSprite.setPosition(position);
+            }
             
-            position.y += getGravity() * elapsedTime;
             if(position.y >= window.getSize().y - characterSprite.getGlobalBounds().height)
             {
                 position.y = window.getSize().y - characterSprite.getGlobalBounds().height;
+                characterSprite.setPosition(position);
                 isFalling = false;
             }
         }
     }
-
-    characterSprite.setPosition(position);
 }

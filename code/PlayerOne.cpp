@@ -20,13 +20,12 @@ void PlayerOne::spawn(RenderWindow& window)
 
 void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer)
 {
-    jumpcalc(elapsedTime,window, map); //has to be included in a loop in the game for physics to be calculated
+    jumpcalc(elapsedTime,window, map, otherPlayer); //has to be included in a loop in the game for physics to be calculated
     if(Keyboard::isKeyPressed(Keyboard::W))
     {
-       
         jump(elapsedTime,window,map);
     }
-    
+
     if(Keyboard::isKeyPressed(Keyboard::A))
     {
         moveleft(elapsedTime, window, map, otherPlayer);
