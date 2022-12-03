@@ -1,6 +1,7 @@
 #pragma once
 #include "projectile.h"
-#include "character.h"
+
+
 
 projectile::projectile(sf::Vector2f pos) {
 

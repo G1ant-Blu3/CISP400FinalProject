@@ -3,6 +3,8 @@
 #include "PlayerTwo.h"
 #include <SFML/Graphics.hpp>
 #include "drawmap.h"
+#include "projectilemap.h"
+
 using namespace sf;
 
 engine::engine() {
@@ -22,6 +24,7 @@ void engine::run() {
         Sprite s_background;
         s_background.setTexture(background);
         drawmap map;
+        projectilemap projmap;
 
         PlayerOne playerOne;
         PlayerTwo playerTwo;
