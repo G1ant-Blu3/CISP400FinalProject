@@ -27,7 +27,7 @@ void projectilemap::createprojectile(Character& player)
 		
 
 }
-void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Character& player, Character& otherplayer) 
+void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Character& player, Character& otherplayer, drawmap& map) 
 {
 	if (Keyboard::isKeyPressed(Keyboard::F))
 	{

@@ -48,7 +48,7 @@ void engine::run() {
                     window.close();
                 }
             }
-            projmap.projecticalc(dtAsSeconds, window , playerOne, playerTwo);
+            projmap.projecticalc(dtAsSeconds, window , playerOne, playerTwo, map);
             map.checkmouse(window);
             playerOne.movement(dtAsSeconds, window, map, playerTwo);
             playerTwo.movement(dtAsSeconds, window, map, playerOne);
