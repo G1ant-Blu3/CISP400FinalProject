@@ -38,9 +38,9 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 		createprojectile(otherplayer);
 	}
 	float offset = speed * elaspedtime;
-	for (int i = 0; i < projectilevector.size(); i++) 
+	for (int i = 0; i < projectilevector.size(); i++)
 	{
-		if (projectilevector[i]->leftward == true) 
+		if (projectilevector[i]->leftward == true)
 		{
 			projectilevector[i]->position.x -= offset;
 			projectilevector[i]->sprite.setPosition(projectilevector[i]->position);
@@ -49,6 +49,19 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 		{
 			projectilevector[i]->position.x += offset;
 			projectilevector[i]->sprite.setPosition(projectilevector[i]->position);
+		}
+		for (int i = 0; i < map.tilevector.size(); i++)
+		{
+			for (int j = 0; j < projectilevector.size(); j++) // pay close attention to if the i or the j is part of the vector
+			{
+				if (projectilevector[j]->sprite.getGlobalBounds().intersects(map.tilevector[i]->sprite.getGlobalBounds()))
+				{
+				 projectilevector.erase(projectilevector.begin() + j);// why does it have to have to beggging idk????/
+				
+				
+
+				}
+			}
 		}
 	}
 
