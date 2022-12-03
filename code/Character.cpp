@@ -135,6 +135,13 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
         {
             isJumping = false;
         }
+        for (int i = 0; i < map.wallBounds.size(); i++)
+        {
+            if (rectangle.intersects(map.wallBounds[i]))
+            {
+                isJumping = false;
+            }
+        }
 
         if (timeOfCurrentJump < jumpDuration)
         {
@@ -166,13 +173,13 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
     {
         if (position.y < window.getSize().y - characterSprite.getGlobalBounds().height)
         {  
-            float offset = getGravity() * elapsedTime;
+            float offset = getGravity() * elapsedTime;           
             FloatRect rectangle(Vector2f(position.x, position.y + 10), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
             if (rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
             {
                 isFalling = false;
             }
-                
+               
                 for(int i = 0; i < map.wallBounds.size(); i++)
                 {
                     if (rectangle.intersects(map.wallBounds[i])) 
