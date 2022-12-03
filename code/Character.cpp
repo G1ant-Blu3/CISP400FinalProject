@@ -96,6 +96,32 @@ void Character::jump(float elapsedTime, RenderWindow& window, drawmap& map) //ne
 // has to be in a movement loop for it to calcuate during the game
 void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
     // find a way to constanly apply gravity
+    if (!isJumping && !isFalling) 
+    {
+        isFalling = true;
+        FloatRect rectangle(Vector2f(position.x, position.y - 1), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+        if (rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds())) {
+            isFalling = false;
+        }
+       
+        for (int i = 0; i < map.wallBounds.size(); i++)
+        {
+             if (rectangle.intersects(map.wallBounds[i]))
+             {
+                    isFalling = false;
+             }
+
+        }
+        if (position.y >= window.getSize().y - characterSprite.getGlobalBounds().height)
+        {
+            position.y = window.getSize().y - characterSprite.getGlobalBounds().height;
+            characterSprite.setPosition(position);
+            isFalling = false;
+        }
+
+        
+
+    }
     if (isJumping)
     {
         timeOfCurrentJump += elapsedTime;
@@ -103,8 +129,12 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
         if (timeOfCurrentJump < jumpDuration)
         {
             float offset = getGravity() * 1.5 * elapsedTime;
-            FloatRect rectangle(Vector2f(position.x, position.y - 1), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-            if(!rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds()))               
+            FloatRect rectangle(Vector2f(position.x, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+            if(rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds()))               
+            {
+                isJumping = false;
+            }
+            if (isJumping = true)
             {
                 position.y -= offset;
                 characterSprite.setPosition(position);
@@ -114,12 +144,16 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
                 isJumping = false;
                 isFalling = true;
             }
+            
         }
-        else
+        else 
         {
-            isJumping = false;
+
+            isJumping = false;// something doesnt seem right here
             isFalling = true;
         }
+        
+       
     }
 
     if (isFalling)
@@ -127,7 +161,7 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
         if (position.y < window.getSize().y - characterSprite.getGlobalBounds().height)
         {  
             float offset = getGravity() * elapsedTime;
-            FloatRect rectangle(Vector2f(position.x, position.y + offset), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+            FloatRect rectangle(Vector2f(position.x, position.y + 1), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
             if (rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
             {
                 isFalling = false;
