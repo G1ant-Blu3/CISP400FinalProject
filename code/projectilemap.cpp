@@ -54,11 +54,33 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 		{
 			for (int j = 0; j < projectilevector.size(); j++) // pay close attention to if the i or the j is part of the vector
 			{
-				if (projectilevector[j]->sprite.getGlobalBounds().intersects(map.tilevector[i]->sprite.getGlobalBounds()))
+				if (projectilevector[j]->sprite.getGlobalBounds().intersects(map.wallBounds[i]))
 				{
 				 projectilevector.erase(projectilevector.begin() + j);// why does it have to have to beggging idk????/
+				 map.tilevector.erase(map.tilevector.begin() + i);
+				 map.wallBounds.erase(map.wallBounds.begin() + i); // disable this if you want brocks to stay
 				
 				
+
+				}
+				if (projectilevector[j]->sprite.getGlobalBounds().intersects(player.getSprite().getGlobalBounds())) 
+				{
+					projectilevector.erase(projectilevector.begin() + j);
+					player.ishit = true;
+				}
+				if (projectilevector[j]->sprite.getGlobalBounds().intersects(otherplayer.getSprite().getGlobalBounds()))
+				{
+					projectilevector.erase(projectilevector.begin() + j);
+					otherplayer.ishit = true;
+				}
+				if (projectilevector[j]->sprite.getGlobalBounds().left < 0)
+				{
+					projectilevector.erase(projectilevector.begin() + j);
+					
+				}
+				if (projectilevector[j]->sprite.getGlobalBounds().left > window.getSize().x)
+				{
+					projectilevector.erase(projectilevector.begin() + j);
 
 				}
 			}
