@@ -15,13 +15,15 @@ class Character
         float getGravity();
         void jumpcalc(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
         void virtual movement(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer) = 0;
-        
+        void ifhit();
         void moveleft(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
         void moveright(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
         bool left = false;
         bool right = false;
         bool ishit = false;
         float firedtime;
+        float health = 100;
+        bool isdead = false;
     protected:
         Texture characterTexture;
         Sprite characterSprite;

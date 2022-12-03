@@ -195,3 +195,14 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
         }
     }
 }
+void Character::ifhit()
+{
+
+        this->ishit = false;
+        this->health - 50;
+        if (this->health <= 0)
+        {
+            this->isdead = true;
+        }
+
+}

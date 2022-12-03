@@ -20,6 +20,10 @@ void PlayerOne::spawn(RenderWindow& window)
 
 void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer)
 {
+    if (this->ishit == true) 
+    {
+        this->ifhit();
+    }
     jumpcalc(elapsedTime,window, map, otherPlayer); //has to be included in a loop in the game for physics to be calculated
     if(Keyboard::isKeyPressed(Keyboard::W))
     {
