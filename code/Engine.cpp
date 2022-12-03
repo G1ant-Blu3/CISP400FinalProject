@@ -48,7 +48,7 @@ void engine::run() {
                     window.close();
                 }
             }
-            
+            projmap.projecticalc(dtAsSeconds, window , playerOne, playerTwo);
             map.checkmouse(window);
             playerOne.movement(dtAsSeconds, window, map, playerTwo);
             playerTwo.movement(dtAsSeconds, window, map, playerOne);
@@ -59,6 +59,9 @@ void engine::run() {
             for (int i = 0; i < map.tilevector.size(); i++) {
                 
                 window.draw(map.tilevector.at(i)->returnsprite());
+            }
+            for (int i = 0; i < projmap.projectilevector.size(); i++) {
+                window.draw(projmap.projectilevector.at(i)->sprite);
             }
             
             window.draw(playerOne.getSprite());
