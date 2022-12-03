@@ -149,7 +149,7 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
         else 
         {
 
-            isJumping = false;// something doesnt seem right here
+            isJumping = false;// something doesnt seem right here // 
             isFalling = true;
         }
         
