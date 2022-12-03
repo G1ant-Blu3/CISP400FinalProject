@@ -129,16 +129,18 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
     if (isJumping)
     {
         timeOfCurrentJump += elapsedTime;
+        
+        FloatRect rectangle(Vector2f(position.x, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height + 1));
+        if (rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds()))
+        {
+            isJumping = false;
+        }
 
         if (timeOfCurrentJump < jumpDuration)
         {
             float offset = getGravity() * 1.5 * elapsedTime;
-            FloatRect rectangle(Vector2f(position.x, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-            if(rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds()))               
-            {
-                isJumping = false;
-            }
-            if (isJumping = true)
+           
+            if (isJumping == true)
             {
                 position.y -= offset;
                 characterSprite.setPosition(position);
@@ -153,7 +155,7 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
         else 
         {
 
-            isJumping = false;// something doesnt seem right here // 
+            isJumping = false;
             isFalling = true;
         }
         
@@ -165,7 +167,7 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
         if (position.y < window.getSize().y - characterSprite.getGlobalBounds().height)
         {  
             float offset = getGravity() * elapsedTime;
-            FloatRect rectangle(Vector2f(position.x, position.y + 1), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+            FloatRect rectangle(Vector2f(position.x, position.y + 10), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
             if (rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
             {
                 isFalling = false;
