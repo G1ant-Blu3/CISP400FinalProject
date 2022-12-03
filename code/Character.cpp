@@ -27,6 +27,8 @@ Sprite Character::getSprite()
 void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
     float offset = getSpeed() * elapsedTime;
     bool colision = false;
+    bool right = true;
+    bool left = false;
     if (position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
     {
         //characterSprite.setScale(5.0, 5.0); displaces the image then where it actually is
@@ -55,7 +57,8 @@ void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map,
 }
 
 void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
-
+    bool left = true;
+    bool right = false;
     float offset = getSpeed() * elapsedTime;
     bool colision = false;
     if (position.x >= characterSprite.getGlobalBounds().width)

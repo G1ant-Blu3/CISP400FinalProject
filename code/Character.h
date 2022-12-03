@@ -18,6 +18,8 @@ class Character
         
         void moveleft(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
         void moveright(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
+        bool left = false;
+        bool right = false;
     protected:
         Texture characterTexture;
         Sprite characterSprite;
@@ -26,6 +28,7 @@ class Character
         float timeOfCurrentJump;
         bool isJumping = false;
         bool isFalling = false;
+        
     private:
         float speed = 1000.0;
         float gravity = 600.0;
