@@ -62,9 +62,9 @@ void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, 
     {
         // characterSprite.setScale(-5.0, 5.0); This function messes with collision, find a different way to rotate the rectangle without messing up the cords
         
-        FloatRect rectangle(Vector2f(position.x - offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-        if(rectangle.intersects(FloatRect(otherPlayer.getSprite().getGlobalBounds().left + otherPlayer.getSprite().getGlobalBounds().width,
-            otherPlayer.getSprite().getGlobalBounds().top, otherPlayer.getSprite().getGlobalBounds().width, otherPlayer.getSprite().getGlobalBounds().height)))
+        FloatRect rectangle(Vector2f(position.x - 1, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+        if(rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds())) // there is no need to add -offset to x if your just checking the closest position of x so -1 if the closest
+            // dont need to recreate to global bounds of the character
         {
             colision = true;
         }
