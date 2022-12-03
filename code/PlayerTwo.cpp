@@ -24,6 +24,11 @@ void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map, 
     {
         this->ifhit();
     }
+    if (isdead == true)
+    {
+        spawn(window);
+        isdead = false;
+    }
     jumpcalc(elapsedTime, window, map, otherPlayer);
     if(Keyboard::isKeyPressed(Keyboard::Up))
     {
