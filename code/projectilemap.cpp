@@ -27,15 +27,24 @@ void projectilemap::createprojectile(Character& player)
 		
 
 }
-void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Character& player, Character& otherplayer, drawmap& map) 
+void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Character& player, Character& otherplayer, drawmap& map, float bullettime) 
 {
+
 	if (Keyboard::isKeyPressed(Keyboard::F))
 	{
-		createprojectile(player);
+		if (player.firedtime < bullettime)
+		{
+			createprojectile(player);
+			player.firedtime = bullettime + 100 ;
+		}
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Enter))
 	{
-		createprojectile(otherplayer);
+		if (otherplayer.firedtime < bullettime)
+		{
+			createprojectile(otherplayer);
+			otherplayer.firedtime = bullettime + 100;
+		}
 	}
 	float offset = speed * elaspedtime;
 	for (int i = 0; i < projectilevector.size(); i++)

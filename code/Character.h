@@ -21,6 +21,7 @@ class Character
         bool left = false;
         bool right = false;
         bool ishit = false;
+        float firedtime;
     protected:
         Texture characterTexture;
         Sprite characterSprite;

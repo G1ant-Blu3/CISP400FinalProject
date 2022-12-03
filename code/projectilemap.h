@@ -14,7 +14,7 @@ public:
 	void createprojectile(Character& player);
 	void removeprojectile();
 	std::vector<projectile*> projectilevector;
-	void projecticalc(float speed, RenderWindow& window, Character& player, Character& otherplayer, drawmap& map);
+	void projecticalc(float speed, RenderWindow& window, Character& player, Character& otherplayer, drawmap& map, float bullettime);
 	
 	float speed = 1000.0;
 

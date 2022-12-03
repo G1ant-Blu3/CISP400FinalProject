@@ -31,14 +31,16 @@ void engine::run() {
         playerOne.spawn(window);
         playerTwo.spawn(window);
 
-        
+        Clock proj;
 
         Clock clock;
 
         while (window.isOpen())
         {
+            Time jf = proj.getElapsedTime();
             Time dt = clock.restart();
             float dtAsSeconds = dt.asSeconds();
+            float jfMilliseconds = jf.asMilliseconds();
 
             Event event;
             while (window.pollEvent(event))
@@ -48,7 +50,7 @@ void engine::run() {
                     window.close();
                 }
             }
-            projmap.projecticalc(dtAsSeconds, window , playerOne, playerTwo, map);
+            projmap.projecticalc(dtAsSeconds, window , playerOne, playerTwo, map, jfMilliseconds);
             map.checkmouse(window);
             playerOne.movement(dtAsSeconds, window, map, playerTwo);
             playerTwo.movement(dtAsSeconds, window, map, playerOne);
