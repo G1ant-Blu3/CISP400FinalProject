@@ -9,7 +9,7 @@ PlayerTwo::PlayerTwo()
     IntRect rectangle(5, 14, 17, 34);
     characterSprite.setTexture(characterTexture);
     characterSprite.setTextureRect(rectangle);
-    characterSprite.setScale(5.0, 5.0); // -5 messes with the collision, do not use
+    characterSprite.setScale(3.0, 3.0); // -5 messes with the collision, do not use
 }
 
 void PlayerTwo::spawn(RenderWindow& window)

@@ -9,7 +9,7 @@ PlayerOne::PlayerOne()
     IntRect rectangle(4, 14, 19, 34);
     characterSprite.setTexture(characterTexture);
     characterSprite.setTextureRect(rectangle);
-    characterSprite.setScale(5.0, 5.0);
+    characterSprite.setScale(3.0, 3.0);
 }
 
 void PlayerOne::spawn(RenderWindow& window)

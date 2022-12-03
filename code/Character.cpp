@@ -175,7 +175,7 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
                     }
 
                 }
-            //need to figure this part out. collision detection works where player can stand on top of other player buts can't jump again until they reach the ground
+            
             if(isFalling == true)
             {
                 position.y += offset;
