@@ -90,6 +90,7 @@ void Character::jump(float elapsedTime, RenderWindow& window, drawmap& map) //ne
 {
     if (!isJumping && !isFalling)
     {
+        justjumped = true;
         isJumping = true;
         timeOfCurrentJump = 0.0;
     }

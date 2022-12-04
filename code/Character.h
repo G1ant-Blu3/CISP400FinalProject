@@ -32,6 +32,7 @@ class Character
         bool beenhit = false;
         Texture characterTexture;
         Sprite characterSprite;
+        bool justjumped = false;
     protected:
         
         
