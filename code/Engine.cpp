@@ -7,6 +7,7 @@
 #include "animationone.h"
 #include "animationtwo.h"
 #include "hud.h"
+#include <SFML/Audio.hpp>
 using namespace sf;
 
 engine::engine() {
