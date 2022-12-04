@@ -26,3 +26,10 @@ hud::hud()
 
 	sf::RectangleShape player2helath;
 }
+void hud::updatehud(RenderWindow& window, Character& playerone, Character& playertwo)
+{
+	player1deathstext.setString("Deaths: ");
+	player2deathstext.setString("Deaths: ");
+	window.draw(player1deathstext);
+	window.draw(player2deathstext);
+}

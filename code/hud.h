@@ -19,13 +19,8 @@ public:
 	float player1heatlh;
 	float player2health;
 
-	void updatehud(RenderWindow& window, Character& playerone, Character& playertwo) 
-	{
-		player1deathstext.setString("Deaths: ");
-		player2deathstext.setString("Deaths: ");
-		window.draw(player1deathstext);
-		window.draw(player2deathstext);
-	}
+	void updatehud(RenderWindow& window, Character& playerone, Character& playertwo);
+	
 };
 
 
