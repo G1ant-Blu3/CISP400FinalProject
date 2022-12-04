@@ -32,10 +32,11 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 	}
 	if (fastimagestate == 4)
 	{
+		player.beenhit = false;
 		player.isfiring = false;
 		fastimagestate = 0;
 	}
-	if (player.ishit == false && player.isdead == false && player.isJumping == false && player.isfiring == false && player.isFalling == false)
+	if (player.beenhit == false && player.isdead == false && player.isJumping == false && player.isfiring == false && player.isFalling == false)
 	{
 		if (player.left == true)
 		{
@@ -81,7 +82,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 
 
 	}
-	if (player.ismoving == true && player.isJumping == false && player.isFalling == false && player.isfiring == false)
+	if (player.beenhit == false && player.ismoving == true && player.isJumping == false && player.isFalling == false && player.isfiring == false)
 	{
 		if (player.right == true)
 		{
@@ -127,7 +128,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 
 
 	}
-	if (player.isJumping == true && player.isfiring == false)// first two images are jumping last two are falling
+	if (player.isJumping == true && player.isfiring == false && player.beenhit == false )// first two images are jumping last two are falling
 	{
 
 		if (player.right == true)
@@ -172,7 +173,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 			}
 		}
 	}
-	if (player.isFalling == true && player.isfiring == false)// first two images are jumping last two are falling
+	if (player.beenhit == false && player.isFalling == true && player.isfiring == false)// first two images are jumping last two are falling
 	{
 
 		if (player.right == true)
@@ -217,7 +218,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 			}
 		}
 	}
-	if (player.isfiring == true)
+	if (player.beenhit == false && player.isfiring == true)
 	{
 
 		if (player.right == true)
@@ -258,6 +259,50 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 			}
 			if (fastimagestate == 3) {
 				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot1Left.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+		}
+	}
+	if (player.beenhit == true)
+	{
+		if (player.right == true)
+		{
+			if (fastimagestate == 0)
+			{
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+			if (fastimagestate == 1) {
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+			if (fastimagestate == 2) {
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+			if (fastimagestate == 3) {
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+
+		}
+		if (player.left == true)
+		{
+			if (fastimagestate == 0)
+			{
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1Left.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+			if (fastimagestate == 1) {
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2Left.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+			if (fastimagestate == 2) {
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1Left.png");
+				player.characterSprite.setTexture(player.characterTexture, true);
+			}
+			if (fastimagestate == 3) {
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 		}

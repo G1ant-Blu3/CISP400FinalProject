@@ -29,6 +29,7 @@ class Character
         bool isFalling = false;
         bool isfiring = false;
         bool ismoving = false;
+        bool beenhit = false;
         Texture characterTexture;
         Sprite characterSprite;
     protected:
