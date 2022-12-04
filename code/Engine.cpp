@@ -8,6 +8,7 @@
 #include "animationtwo.h"
 #include "hud.h"
 #include <SFML/Audio.hpp>
+#include "audio.h"
 using namespace sf;
 
 engine::engine() {
@@ -29,7 +30,7 @@ void engine::run() {
         drawmap map;
         projectilemap projmap;
         hud hud;
-        
+        audio audio;
         animationone animationone;
         animationtwo animationtwo;
         PlayerOne playerOne;
@@ -62,6 +63,7 @@ void engine::run() {
             playerTwo.movement(dtAsSeconds, window, map, playerOne);
             animationtwo.calcanimationtwo(dtAsSeconds, playerTwo);
             animationone.calcanimationone(dtAsSeconds,playerOne);
+            audio.calcaudio(window, playerOne, playerTwo);
             window.clear();
             window.draw(s_background);
             hud.updatehud(window, playerOne, playerTwo);
