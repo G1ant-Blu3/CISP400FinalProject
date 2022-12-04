@@ -19,7 +19,7 @@ class Character
         void moveleft(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
         void moveright(float elapsedTime, RenderWindow& window,drawmap& map, Character& otherPlayer);
         bool left = false;
-        bool right = false;
+        bool right = true;
         bool ishit = false;
         float firedtime;
         float health = 100;

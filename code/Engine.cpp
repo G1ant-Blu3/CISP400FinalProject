@@ -5,6 +5,7 @@
 #include "drawmap.h"
 #include "projectilemap.h"
 #include "animationone.h"
+#include "animationtwo.h"
 using namespace sf;
 
 engine::engine() {
@@ -27,6 +28,7 @@ void engine::run() {
         projectilemap projmap;
         
         animationone animationone;
+        animationtwo animationtwo;
         PlayerOne playerOne;
         PlayerTwo playerTwo;
         playerOne.spawn(window);
@@ -55,6 +57,7 @@ void engine::run() {
             map.checkmouse(window);
             playerOne.movement(dtAsSeconds, window, map, playerTwo);
             playerTwo.movement(dtAsSeconds, window, map, playerOne);
+            animationtwo.calcanimationtwo(dtAsSeconds, playerTwo);
             animationone.calcanimationone(dtAsSeconds,playerOne);
             window.clear();
             window.draw(s_background);

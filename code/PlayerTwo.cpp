@@ -6,9 +6,9 @@ PlayerTwo::PlayerTwo()
 {
     jumpDuration = 0.5;
     characterTexture.loadFromFile("graphics/Punk_idle.png");
-    IntRect rectangle(5, 14, 17, 34);
+    //IntRect rectangle(5, 14, 17, 34);
     characterSprite.setTexture(characterTexture);
-    characterSprite.setTextureRect(rectangle);
+    //characterSprite.setTextureRect(rectangle);
     characterSprite.setScale(3.0, 3.0); // -5 messes with the collision, do not use
 }
 
@@ -38,13 +38,13 @@ void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map, 
     if(Keyboard::isKeyPressed(Keyboard::Left))
     {
         moveleft(elapsedTime, window, map, otherPlayer);
-        ismoving == true;
+        ismoving = true;
     }
 
     if(Keyboard::isKeyPressed(Keyboard::Right))
     {
         moveright(elapsedTime, window, map, otherPlayer);
-        ismoving == true;
+        ismoving = true;
     }
     if (!Keyboard::isKeyPressed(Keyboard::Left) && !Keyboard::isKeyPressed(Keyboard::Right))
     {
