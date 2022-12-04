@@ -213,6 +213,7 @@ void Character::ifhit()
         {
             isdead = true;
             health = 100;
+            timesdead = +1;
         }
 
 }

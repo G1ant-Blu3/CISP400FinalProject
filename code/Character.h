@@ -24,6 +24,7 @@ class Character
         float firedtime;
         float health = 100;
         bool isdead = false;
+        float timesdead = 0;
     protected:
         Texture characterTexture;
         Sprite characterSprite;
