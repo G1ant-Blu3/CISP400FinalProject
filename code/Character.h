@@ -33,6 +33,7 @@ class Character
         Texture characterTexture;
         Sprite characterSprite;
         bool justjumped = false;
+        bool justfired = false;
     protected:
         
         

@@ -8,6 +8,7 @@ projectilemap::projectilemap()
 }
 void projectilemap::createprojectile(Character& player) 
 {
+	player.justfired = true;
 	if (player.left == true)
 	{
 		sf::Vector2f pos(player.getSprite().getGlobalBounds().left - 31, player.getSprite().getGlobalBounds().top + 32);

@@ -16,5 +16,6 @@ public:
 	// sf::SoundBuffer jumpbuffer; make sure each buffer has their own sound
 
 
-	sf::Sound sound;
+	sf::Sound sound1;
+	sf::Sound sound2;
 };
