@@ -6,6 +6,7 @@
 #include "projectilemap.h"
 #include "animationone.h"
 #include "animationtwo.h"
+#include "hud.h"
 using namespace sf;
 
 engine::engine() {
@@ -26,6 +27,7 @@ void engine::run() {
         s_background.setTexture(background);
         drawmap map;
         projectilemap projmap;
+        hud hud;
         
         animationone animationone;
         animationtwo animationtwo;
@@ -61,6 +63,7 @@ void engine::run() {
             animationone.calcanimationone(dtAsSeconds,playerOne);
             window.clear();
             window.draw(s_background);
+            hud.updatehud(window, playerOne, playerTwo);
             
             for (int i = 0; i < map.tilevector.size(); i++) {
                 

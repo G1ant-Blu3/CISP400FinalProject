@@ -10,15 +10,17 @@ hud::hud()
 	sf::Text gameover;
 
 	sf::Text player1deaths;
-	player1deaths.setFont(font);
-	player1deaths.setCharacterSize(24);
+	player1deathstext.setFont(font);
+	player1deathstext.setCharacterSize(24);
+	player1deathstext.setPosition(20, 20);
 
 	sf::Text player2deaths;
-	player1deaths.setFont(font);
-	player2deaths.setCharacterSize(24);
+	player1deathstext.setFont(font);
+	player2deathstext.setCharacterSize(24);
+	player1deathstext.setPosition(20, 20);
 
 
-	sf::Text gameover;
+
 
 	sf::RectangleShape player1health;
 
