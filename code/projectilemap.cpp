@@ -34,14 +34,17 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 	{
 		if (player.firedtime < bullettime)
 		{
+			player.isfiring = true;
 			createprojectile(player);
 			player.firedtime = bullettime + 100 ;
+			
 		}
 	}
 	if (Keyboard::isKeyPressed(Keyboard::Enter))
 	{
 		if (otherplayer.firedtime < bullettime)
 		{
+			otherplayer.isfiring = true;
 			createprojectile(otherplayer);
 			otherplayer.firedtime = bullettime + 100;
 		}

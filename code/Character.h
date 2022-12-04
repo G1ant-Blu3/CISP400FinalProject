@@ -25,14 +25,19 @@ class Character
         float health = 100;
         bool isdead = false;
         float timesdead = 0;
-    protected:
+        bool isJumping = false;
+        bool isFalling = false;
+        bool isfiring = false;
+        bool ismoving = false;
         Texture characterTexture;
         Sprite characterSprite;
+    protected:
+        
+        
         Vector2f position;
         float jumpDuration;
         float timeOfCurrentJump;
-        bool isJumping = false;
-        bool isFalling = false;
+     
         
         
     private:

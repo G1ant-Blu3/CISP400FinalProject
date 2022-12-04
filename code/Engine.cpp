@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "drawmap.h"
 #include "projectilemap.h"
-
+#include "animationone.h"
 using namespace sf;
 
 engine::engine() {
@@ -25,7 +25,8 @@ void engine::run() {
         s_background.setTexture(background);
         drawmap map;
         projectilemap projmap;
-
+        
+        animationone animationone;
         PlayerOne playerOne;
         PlayerTwo playerTwo;
         playerOne.spawn(window);
@@ -54,7 +55,7 @@ void engine::run() {
             map.checkmouse(window);
             playerOne.movement(dtAsSeconds, window, map, playerTwo);
             playerTwo.movement(dtAsSeconds, window, map, playerOne);
-
+            animationone.calcanimationone(dtAsSeconds,playerOne);
             window.clear();
             window.draw(s_background);
             

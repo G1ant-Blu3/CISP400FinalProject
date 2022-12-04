@@ -38,11 +38,17 @@ void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map, 
     if(Keyboard::isKeyPressed(Keyboard::Left))
     {
         moveleft(elapsedTime, window, map, otherPlayer);
+        ismoving == true;
     }
 
     if(Keyboard::isKeyPressed(Keyboard::Right))
     {
         moveright(elapsedTime, window, map, otherPlayer);
+        ismoving == true;
+    }
+    if (!Keyboard::isKeyPressed(Keyboard::Left) && !Keyboard::isKeyPressed(Keyboard::Right))
+    {
+        ismoving = false;
     }
 
 }
