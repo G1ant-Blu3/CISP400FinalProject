@@ -27,62 +27,60 @@ Sprite Character::getSprite()
 }
 void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
     float offset = getSpeed() * elapsedTime;
-    bool colision = false;
+    bool collision = false;
     right = true;
     left = false;
-    if (position.x <= window.getSize().x - characterSprite.getGlobalBounds().width)
+    if (position.x + offset >= window.getSize().x - characterSprite.getGlobalBounds().width) //detects right side of screen collision to avoid player out of bounds
     {
-        //characterSprite.setScale(5.0, 5.0); displaces the image then where it actually is
-        
-        FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-        if(rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
+        collision = true;
+        offset = window.getSize().x - position.x; //sets offset to remaining value for player to stand at edge of right side
+    }
+    
+    FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+    if(rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
+    {
+        collision = true;    
+    }
+    for (int i = 0; i < map.wallBounds.size(); i++)
+    {
+        if (rectangle.intersects(map.wallBounds[i]))
         {
-            colision = true;
-            
-        }
-        for (int i = 0; i < map.wallBounds.size(); i++)
-        {
-            FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-            if (rectangle.intersects(map.wallBounds[i]))
-            {
-              colision = true;
-            }
+            collision = true;
         }
     }
-        if (colision == false)
-        {
-            position.x += offset;
-            characterSprite.setPosition(position);
-        }
-   
+    if (collision == false)
+    {
+        position.x += offset;
+        characterSprite.setPosition(position);
+    } 
 }
 
 void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, Character& otherPlayer) {
     left = true;
     right = false;
     float offset = getSpeed() * elapsedTime;
-    bool colision = false;
-    if (position.x >= characterSprite.getGlobalBounds().width)
+    bool collision = false;
+    if (position.x - offset <= 0.0) //detects left side of screen collision to avoid player out of bounds
     {
-        // characterSprite.setScale(-5.0, 5.0); This function messes with collision, find a different way to rotate the rectangle without messing up the cords
-        
-        FloatRect rectangle(Vector2f(position.x - 1, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
-        if(rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds())) // there is no need to add -offset to x if your just checking the closest position of x so -1 if the closest
-            // dont need to recreate to global bounds of the character
+        collision = true;
+        offset = -position.x; //sets offset to remaining value for player to stand at edge of left side
+    }
+
+    FloatRect rectangle(Vector2f(position.x - 1, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+    if(rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds())) // there is no need to add -offset to x if your just checking the closest position of x so -1 if the closest
+        // dont need to recreate to global bounds of the character
+    {
+        collision = true;
+    }
+    for (int i = 0; i < map.wallBounds.size(); i++)
+    {      
+        if(rectangle.intersects(map.wallBounds[i]))
         {
-            colision = true;
-        }
-        for (int i = 0; i < map.wallBounds.size(); i++)
-        {
+            collision = true;
             
-            if(rectangle.intersects(map.wallBounds[i]))
-            {
-                colision = true;
-                
-            }
         }
     }
-    if(colision == false) 
+    if(collision == false) 
     {
         position.x -= offset;
         characterSprite.setPosition(position);
