@@ -1,4 +1,3 @@
-#pragma once
 #include "PlayerOne.h"
 using namespace sf;
 

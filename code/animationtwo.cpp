@@ -1,6 +1,4 @@
-#pragma once
 #include "animationtwo.h"
-
 
 animationtwo::animationtwo()
 {
@@ -41,20 +39,19 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 		if (player.left == true)
 		{
 			if (imagestate == 0) {
-				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle1left.png");
-
+				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle1Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (imagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle2left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle2Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (imagestate == 2) {
-				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle3left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle3Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (imagestate == 3) {
-				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle4left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle4Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 
@@ -139,11 +136,11 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump2.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump1.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 2) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump1.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump2.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {
@@ -160,11 +157,11 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump2Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump1Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 2) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump1Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump2Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {
@@ -184,11 +181,11 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump4.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump3.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 2) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump3.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump4.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {
@@ -205,11 +202,11 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump4Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump3Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 2) {
-				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump3Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_jump/Punk_jump4Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {
@@ -229,7 +226,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot2.png");
+				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot1.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 2) {
@@ -237,7 +234,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {
-				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot1.png");
+				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot2.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 
@@ -246,7 +243,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 		{
 			if (fastimagestate == 0)
 			{
-				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot2Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot1Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
@@ -258,7 +255,7 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {
-				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot1Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_shoot/Punk_shoot2Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 		}
@@ -273,11 +270,11 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2.png");
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 2) {
-				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1.png");
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {
@@ -294,11 +291,11 @@ void animationtwo::calcanimationtwo(float changedtimesec, Character& player)
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 1) {
-				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 2) {
-				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt1Left.png");
+				player.characterTexture.loadFromFile("graphics/Punk_hurt/Punk_hurt2Left.png");
 				player.characterSprite.setTexture(player.characterTexture, true);
 			}
 			if (fastimagestate == 3) {

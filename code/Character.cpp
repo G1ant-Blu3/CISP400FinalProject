@@ -1,9 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Character.h" // ensure header files are here before SFML is define
 
-
-
-
 using namespace sf;
 
 float Character::getSpeed()

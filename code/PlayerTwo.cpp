@@ -1,4 +1,3 @@
-#pragma once
 #include "PlayerTwo.h"
 using namespace sf;
 
@@ -6,7 +5,7 @@ using namespace sf;
 PlayerTwo::PlayerTwo()
 {
     jumpDuration = 0.5;
-    characterTexture.loadFromFile("graphics/Punk_idle.png");
+    characterTexture.loadFromFile("graphics/Punk_idle/Punk_idle1Left.png");
     //IntRect rectangle(5, 14, 17, 34);
     characterSprite.setTexture(characterTexture);
     //characterSprite.setTextureRect(rectangle);
