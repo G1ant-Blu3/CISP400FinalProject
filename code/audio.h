@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Character.h"
+#include "drawmap.h"
 
 
 class audio {
