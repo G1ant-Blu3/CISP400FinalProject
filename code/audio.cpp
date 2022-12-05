@@ -15,6 +15,8 @@ audio::audio() {
 	//build.setPlayingOffset(sf::seconds(1.0));
 	firebuffer.loadFromFile("audio/fire.wav");
 	destroyedbuffer;
+	deadbuffer.loadFromFile("audio/hit.death");
+	dead.setBuffer(deadbuffer);
 }
 void audio::calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap, drawmap& map)
 {

@@ -20,9 +20,10 @@ public:
 	sf::SoundBuffer firebuffer;
 	sf::SoundBuffer buildbuffer;
 	sf::SoundBuffer destroyedbuffer;
+	sf::SoundBuffer deadbuffer;
 	// sf::SoundBuffer jumpbuffer; make sure each buffer has their own sound
 
-
+	sf::Sound dead;
 	sf::Sound sound1;
 	sf::Sound sound2;
 	sf::Sound hit1;
