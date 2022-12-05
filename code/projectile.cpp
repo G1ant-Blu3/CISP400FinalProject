@@ -7,7 +7,7 @@ projectile::projectile(sf::Vector2f pos) {
 
 	position = pos;
 
-	projectiletexture.loadFromFile("graphics/tile.png");
+	projectiletexture.loadFromFile("graphics/rock.png");
 	sf::IntRect rectangle(30, 30, 30, 30);
 	sprite.setTextureRect(rectangle);
 
