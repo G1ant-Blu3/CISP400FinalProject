@@ -12,7 +12,7 @@ void engine::run() {
         resolution.y = VideoMode::getDesktopMode().height;
 
 
-        RenderWindow window(VideoMode(resolution.x, resolution.y), "Final Project", Style::Default);
+        RenderWindow window(VideoMode(resolution.x, resolution.y), "Build N' Battle", Style::Default);
         Texture background;
         background.loadFromFile("graphics/background.png");
         Sprite s_background;
