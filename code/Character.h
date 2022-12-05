@@ -26,7 +26,7 @@ class Character
         float firedtime;
         float health = 100;
         bool isdead = false;
-        float timesdead = 0;
+        int timesdead = 0;
         bool isJumping = false;
         bool isFalling = false;
         bool isfiring = false;

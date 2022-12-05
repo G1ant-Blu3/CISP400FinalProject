@@ -19,7 +19,7 @@ void engine::run() {
         s_background.setTexture(background);
         drawmap map;
         projectilemap projmap;
-        hud hud;
+        hud hud(window);
         audio audio;
         animationone animationone;
         animationtwo animationtwo;

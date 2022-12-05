@@ -1,20 +1,20 @@
 #pragma once
-#pragma once
 #include <SFML/Graphics.hpp>
 #include "Character.h"
 
 class hud {
 
 public:
-	hud();
+	hud(Window& window);
 
-	sf::Font font;
-	sf::Text build;
-	sf::Text gameover;
-	sf::Text player1deathstext;
-	sf::Text player2deathstext;
-	sf::RectangleShape player1health;
-	sf::RectangleShape player2helath;
+	Font font;
+	Texture healthImage;
+	Text build;
+	Text gameover;
+	Text player1deathstext;
+	Text player2deathstext;
+	RectangleShape player1healthbar;
+	RectangleShape player2healthbar;
 
 	float player1deaths;
 	float player2deaths;
