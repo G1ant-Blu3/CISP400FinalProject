@@ -63,6 +63,20 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 			projectilevector[i]->position.x += offset;
 			projectilevector[i]->sprite.setPosition(projectilevector[i]->position);
 		}
+		if (projectilevector[i]->sprite.getGlobalBounds().intersects(player.getSprite().getGlobalBounds()))
+		{
+			projectilevector.erase(projectilevector.begin() + i);
+			player.ishit = true;
+			player.beenhit = true;
+			player.justhit = true;
+		}
+		if (projectilevector[i]->sprite.getGlobalBounds().intersects(otherplayer.getSprite().getGlobalBounds()))
+		{
+			projectilevector.erase(projectilevector.begin() + i);
+			otherplayer.ishit = true;
+			otherplayer.beenhit = true;
+			otherplayer.justhit = true;
+		}
 		for (int i = 0; i < map.tilevector.size(); i++)
 		{
 			for (int j = 0; j < projectilevector.size(); j++) // pay close attention to if the i or the j is part of the vector
@@ -76,20 +90,7 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 				
 
 				}
-				if (projectilevector[j]->sprite.getGlobalBounds().intersects(player.getSprite().getGlobalBounds())) 
-				{
-					projectilevector.erase(projectilevector.begin() + j);
-					player.ishit = true;
-					player.beenhit = true;
-					player.justhit = true;
-				}
-				if (projectilevector[j]->sprite.getGlobalBounds().intersects(otherplayer.getSprite().getGlobalBounds()))
-				{
-					projectilevector.erase(projectilevector.begin() + j);
-					otherplayer.ishit = true;
-					otherplayer.beenhit = true;
-					otherplayer.justhit = true;
-				}
+
 				if (projectilevector[j]->sprite.getGlobalBounds().left < 0)
 				{
 					projectilevector.erase(projectilevector.begin() + j);
