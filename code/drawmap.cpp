@@ -46,6 +46,7 @@ void drawmap::checkmouse(sf::RenderWindow& window) {
 		if (tilevector.size() == 0 || draw == true) {
 			
 			createmap(pos);
+			justbuilt = true;
 
 		}
 		

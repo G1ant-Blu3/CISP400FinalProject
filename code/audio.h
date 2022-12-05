@@ -3,13 +3,14 @@
 #include <SFML/Audio.hpp>
 #include "Character.h"
 #include "projectilemap.h"
+#include "drawmap.h"
 
 
 class audio {
 
 public:
 	audio();
-	void calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap);
+	void calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap, drawmap& map);
 	
 	
 	

@@ -10,10 +10,11 @@ audio::audio() {
 	destroyed.setBuffer(destroyedbuffer);
 	buildbuffer.loadFromFile("audio/built.wav");
 	build.setBuffer(buildbuffer);
+	//build.setPlayingOffset(sf::seconds(1.0));
 	firebuffer.loadFromFile("audio/fire.wav");
 	destroyedbuffer;
 }
-void audio::calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap)
+void audio::calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap, drawmap& map)
 {
 	if (playerone.justjumped == true) 
 	{
@@ -46,6 +47,12 @@ void audio::calcaudio(RenderWindow& window, Character& playerone, Character& pla
 	{
 		projmap.justdestoryed = false;
 		destroyed.play();
+	}
+	if (map.justbuilt == true)
+	{
+		
+		build.play();
+		map.justbuilt = false;
 	}
 	
 	

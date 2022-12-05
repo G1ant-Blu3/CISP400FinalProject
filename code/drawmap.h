@@ -17,7 +17,7 @@ public:
 	void checkmouse(sf::RenderWindow& window);
 	std::vector<tile*> tilevector;
 	std::vector<sf::FloatRect> wallBounds;
-
+	bool justbuilt;
 private: 
 	
 	
