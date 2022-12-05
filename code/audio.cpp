@@ -5,7 +5,9 @@ audio::audio() {
 
 	jumpbuffer.loadFromFile("audio/jump.wav");
 	movebuffer;
-	hitbuffer;
+	hitbuffer.loadFromFile("audio/hit.wav");
+	hit1.setBuffer(hitbuffer);
+	hit2.setBuffer(hitbuffer);
 	destroyedbuffer.loadFromFile("audio/destroyed.wav");
 	destroyed.setBuffer(destroyedbuffer);
 	buildbuffer.loadFromFile("audio/built.wav");
@@ -53,6 +55,16 @@ void audio::calcaudio(RenderWindow& window, Character& playerone, Character& pla
 		
 		build.play();
 		map.justbuilt = false;
+	}
+	if (playerone.justhitaud == true)
+	{
+		playerone.justhitaud = false;
+		hit1.play();
+	}
+	if (playertwo.justhitaud == true)
+	{
+		playertwo.justhitaud = false;
+		hit2.play();
 	}
 	
 	

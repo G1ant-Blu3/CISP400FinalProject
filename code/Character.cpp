@@ -205,7 +205,7 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
 }
 void Character::ifhit()
 {
-
+    justhitaud = true;
         ishit = false;
         health = health - 50;
         if (health <= 0)
