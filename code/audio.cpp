@@ -2,6 +2,11 @@
 
 audio::audio() {
 
+	bufferbackgound.loadFromFile("audio/background.wav");
+	background.setVolume(5.0);
+	background.setLoop(true);
+	background.setBuffer(bufferbackgound);
+	background.play();
 	jumpbuffer.loadFromFile("audio/jump.wav");
 	movebuffer;
 	hitbuffer.loadFromFile("audio/hit.wav");

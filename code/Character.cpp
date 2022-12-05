@@ -33,7 +33,7 @@ void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map,
         offset = window.getSize().x - position.x; //sets offset to remaining value for player to stand at edge of right side
     }
     
-    FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+    FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width + 22, characterSprite.getGlobalBounds().height));
     if(rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
     {
         collision = true;    
@@ -99,7 +99,7 @@ void Character::jumpcalc(float elapsedTime, RenderWindow& window, drawmap& map, 
     if (!isJumping && !isFalling) 
     {
         isFalling = true;
-        FloatRect rectangle(Vector2f(position.x, position.y - 1), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+        FloatRect rectangle(Vector2f(position.x, position.y + 10), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
         if (rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds())) {
             isFalling = false;
         }

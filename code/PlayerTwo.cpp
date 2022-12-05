@@ -14,7 +14,7 @@ PlayerTwo::PlayerTwo()
 
 void PlayerTwo::spawn(RenderWindow& window)
 {
-    position = Vector2f(window.getSize().x - 60, window.getSize().y + characterSprite.getGlobalBounds().height);
+    position = Vector2f(window.getSize().x - 60, window.getSize().y - characterSprite.getGlobalBounds().height);
     characterSprite.setPosition(position);
 }
 
