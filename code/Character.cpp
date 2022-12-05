@@ -204,7 +204,7 @@ void Character::ifhit()
 {
     justhitaud = true;
         ishit = false;
-        health = health - 25;
+        health = health - 10;
         if (health <= 0)
         {
             isdead = true;

@@ -24,6 +24,8 @@ hud::hud(Window& window)
 }
 void hud::updatehud(RenderWindow& window, Character& playerone, Character& playertwo)
 {
+	player1healthbar.setTextureRect(IntRect((-playerone.health + 100) * 2.5, 0, healthImage.getSize().x / 2, healthImage.getSize().y));
+	
 	player1deathstext.setString("Player 1 Deaths: " + std::to_string(playerone.timesdead));
 	//player2deathstext.setString("Deaths: ");
 	window.draw(player1deathstext);
