@@ -2,16 +2,16 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Character.h"
-#include "drawmap.h"
+#include "projectilemap.h"
 
 
 class audio {
 
 public:
 	audio();
-	void calcaudio(RenderWindow& window, Character& playerone, Character& playertwo);
-	void audiodestoryed();
-	void audiobuilt();
+	void calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap);
+	
+	
 	
 	sf::SoundBuffer jumpbuffer;
 	sf::SoundBuffer movebuffer;

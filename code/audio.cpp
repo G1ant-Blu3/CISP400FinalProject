@@ -13,7 +13,7 @@ audio::audio() {
 	firebuffer.loadFromFile("audio/fire.wav");
 	destroyedbuffer;
 }
-void audio::calcaudio(RenderWindow& window, Character& playerone, Character& playertwo)
+void audio::calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap)
 {
 	if (playerone.justjumped == true) 
 	{
@@ -42,15 +42,14 @@ void audio::calcaudio(RenderWindow& window, Character& playerone, Character& pla
 		sound2.play();
 		playertwo.justfired = false;
 	}
+	if (projmap.justdestoryed == true)
+	{
+		projmap.justdestoryed = false;
+		destroyed.play();
+	}
+	
 	
 
 
 }
-void audio::audiodestoryed()
-{
-	destroyed.play();
-}
-void audio::audiobuilt()
-{
-	build.play();
-}
+

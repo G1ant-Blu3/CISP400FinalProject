@@ -54,7 +54,7 @@ void engine::run() {
             playerTwo.movement(dtAsSeconds, window, map, playerOne);
             animationtwo.calcanimationtwo(dtAsSeconds, playerTwo);
             animationone.calcanimationone(dtAsSeconds,playerOne);
-            audio.calcaudio(window, playerOne, playerTwo);
+            audio.calcaudio(window, playerOne, playerTwo, projmap);
             window.clear();
             window.draw(s_background);
             hud.updatehud(window, playerOne, playerTwo);

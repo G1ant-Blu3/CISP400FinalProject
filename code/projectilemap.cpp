@@ -86,7 +86,7 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 				 projectilevector.erase(projectilevector.begin() + j);// why does it have to have to beggging idk????/
 				 map.tilevector.erase(map.tilevector.begin() + i);
 				 map.wallBounds.erase(map.wallBounds.begin() + i); // disable this if you want brocks to stay
-				
+				 justdestoryed = true;
 				
 
 				}
