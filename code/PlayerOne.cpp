@@ -1,6 +1,7 @@
+#pragma once
 #include "PlayerOne.h"
 using namespace sf;
-#include "tile.h"
+
 
 PlayerOne::PlayerOne()
 {

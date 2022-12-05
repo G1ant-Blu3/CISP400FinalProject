@@ -1,6 +1,7 @@
+#pragma once
 #include "PlayerTwo.h"
-#include "drawmap.h"
 using namespace sf;
+
 
 PlayerTwo::PlayerTwo()
 {

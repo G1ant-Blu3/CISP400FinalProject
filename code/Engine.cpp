@@ -1,14 +1,5 @@
+#pragma once
 #include "engine.h"
-#include "PlayerOne.h"
-#include "PlayerTwo.h"
-#include <SFML/Graphics.hpp>
-#include "drawmap.h"
-#include "projectilemap.h"
-#include "animationone.h"
-#include "animationtwo.h"
-#include "hud.h"
-#include <SFML/Audio.hpp>
-#include "audio.h"
 using namespace sf;
 
 engine::engine() {

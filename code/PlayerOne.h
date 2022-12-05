@@ -1,7 +1,8 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "Character.h" 
 #include "drawmap.h"
-#include <SFML/Graphics.hpp>
+
 
 using namespace sf;
 

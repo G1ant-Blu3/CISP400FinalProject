@@ -4,6 +4,10 @@
 #include "tile.h"
 
 
+
+
+
+
 class drawmap {
 public:
 	drawmap();

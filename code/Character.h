@@ -2,6 +2,7 @@
 #include "drawmap.h"
 #include <SFML/Graphics.hpp>
 
+
 using namespace sf;
 
 class Character
@@ -34,6 +35,7 @@ class Character
         Sprite characterSprite;
         bool justjumped = false;
         bool justfired = false;
+        bool justhit = false;
     protected:
         
         

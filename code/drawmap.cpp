@@ -1,7 +1,9 @@
-#include "drawmap.h"
-#include <iostream>
+#pragma once
 #include <SFML/Graphics.hpp>
-#include "engine.h"
+#include "drawmap.h"
+
+
+
 using namespace std;
 
 drawmap::drawmap() {
@@ -12,6 +14,7 @@ void drawmap::createmap(sf::Vector2i pos) {
 	tile* tileheap = new tile(pos);
 	tilevector.push_back(tileheap);
 	wallBounds.push_back(tileheap->sprite.getGlobalBounds());
+
 	
 	
 }
@@ -41,6 +44,7 @@ void drawmap::checkmouse(sf::RenderWindow& window) {
 			
 		}
 		if (tilevector.size() == 0 || draw == true) {
+			
 			createmap(pos);
 
 		}

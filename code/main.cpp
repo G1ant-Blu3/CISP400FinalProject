@@ -1,8 +1,5 @@
-#include "PlayerOne.h"
-#include "PlayerTwo.h"
-#include <SFML/Graphics.hpp>
+#pragma once
 #include "engine.h"
-#include "drawmap.h"
 using namespace sf;
 
 int main()

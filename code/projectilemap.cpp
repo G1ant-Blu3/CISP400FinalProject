@@ -81,12 +81,14 @@ void  projectilemap::projecticalc(float elaspedtime,RenderWindow& window, Charac
 					projectilevector.erase(projectilevector.begin() + j);
 					player.ishit = true;
 					player.beenhit = true;
+					player.justhit = true;
 				}
 				if (projectilevector[j]->sprite.getGlobalBounds().intersects(otherplayer.getSprite().getGlobalBounds()))
 				{
 					projectilevector.erase(projectilevector.begin() + j);
 					otherplayer.ishit = true;
 					otherplayer.beenhit = true;
+					otherplayer.justhit = true;
 				}
 				if (projectilevector[j]->sprite.getGlobalBounds().left < 0)
 				{

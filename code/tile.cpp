@@ -1,5 +1,4 @@
 #include "tile.h"
-#include <iostream>
 using namespace std;
 tile::tile(sf::Vector2i pos) {
 	sf::Vector2f recpos = sf::Vector2f(pos);

@@ -3,8 +3,6 @@
 #include "projectile.h"
 
 
-#include <vector>
-
 using namespace sf;
 
 

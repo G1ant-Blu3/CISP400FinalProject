@@ -6,7 +6,12 @@ audio::audio() {
 	jumpbuffer.loadFromFile("audio/jump.wav");
 	movebuffer;
 	hitbuffer;
+	destroyedbuffer.loadFromFile("audio/destroyed.wav");
+	destroyed.setBuffer(destroyedbuffer);
+	buildbuffer.loadFromFile("audio/built.wav");
+	build.setBuffer(buildbuffer);
 	firebuffer.loadFromFile("audio/fire.wav");
+	destroyedbuffer;
 }
 void audio::calcaudio(RenderWindow& window, Character& playerone, Character& playertwo)
 {
@@ -37,6 +42,15 @@ void audio::calcaudio(RenderWindow& window, Character& playerone, Character& pla
 		sound2.play();
 		playertwo.justfired = false;
 	}
+	
 
 
+}
+void audio::audiodestoryed()
+{
+	destroyed.play();
+}
+void audio::audiobuilt()
+{
+	build.play();
 }
