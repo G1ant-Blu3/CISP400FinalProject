@@ -15,7 +15,7 @@ audio::audio() {
 	//build.setPlayingOffset(sf::seconds(1.0));
 	firebuffer.loadFromFile("audio/fire.wav");
 	destroyedbuffer;
-	deadbuffer.loadFromFile("audio/hit.death");
+	deadbuffer.loadFromFile("audio/death.wav");
 	dead.setBuffer(deadbuffer);
 }
 void audio::calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap, drawmap& map)
@@ -68,7 +68,16 @@ void audio::calcaudio(RenderWindow& window, Character& playerone, Character& pla
 		playertwo.justhitaud = false;
 		hit2.play();
 	}
-	
+	if (playertwo.justdiedaud == true)
+	{
+		dead.play();
+		playertwo.justdiedaud = false;
+	}
+	if (playerone.justdiedaud == true)
+	{
+		dead.play();
+		playerone.justdiedaud = false;
+	}
 	
 
 
