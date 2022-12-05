@@ -13,7 +13,7 @@ public:
 	void calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap, drawmap& map);
 	
 	
-	
+	sf::SoundBuffer bufferbackgound;
 	sf::SoundBuffer jumpbuffer;
 	sf::SoundBuffer movebuffer;
 	sf::SoundBuffer hitbuffer;
@@ -22,7 +22,7 @@ public:
 	sf::SoundBuffer destroyedbuffer;
 	sf::SoundBuffer deadbuffer;
 	// sf::SoundBuffer jumpbuffer; make sure each buffer has their own sound
-
+	sf::Sound background;
 	sf::Sound dead;
 	sf::Sound sound1;
 	sf::Sound sound2;
