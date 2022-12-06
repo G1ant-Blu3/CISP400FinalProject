@@ -32,7 +32,7 @@ void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map,
         collision = true;
         offset = window.getSize().x - position.x; //sets offset to remaining value for player to stand at edge of right side
     }
-    FloatRect top(Vector2f(position.x + 22, position.y - 20), Vector2f(characterSprite.getGlobalBounds().width + 2, characterSprite.getGlobalBounds().height));
+    FloatRect top(Vector2f(position.x , position.y - 20), Vector2f(characterSprite.getGlobalBounds().width + 20, characterSprite.getGlobalBounds().height));
     FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width + 22, characterSprite.getGlobalBounds().height));
     if(rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
     {
