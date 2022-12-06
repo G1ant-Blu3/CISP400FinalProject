@@ -7,7 +7,7 @@ engine::engine()
     resolution.y = VideoMode::getDesktopMode().height;
     background.loadFromFile("graphics/background.png");
     s_background.setTexture(background);
-    
+    s_background.setTextureRect(IntRect(0, background.getSize().y - resolution.y, background.getSize().x, background.getSize().y));
     
 }
 void engine::run() {

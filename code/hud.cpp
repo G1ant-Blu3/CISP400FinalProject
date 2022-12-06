@@ -3,23 +3,20 @@
 
 hud::hud(Window& window)
 {
-	font.loadFromFile("graphics/arial.ttf");
+	font.loadFromFile("graphics/ARCADECLASSIC.TTF");
 	healthImage.loadFromFile("graphics/healthState.png");
 
 	build.setFont(font);
-	build.setFillColor(Color::Black);
 	build.setCharacterSize(24);
-	build.setString("Build Mode is ON! Esc to toggle ON/OFF");
+	build.setString("Build Mode is ON! Toggle with esc");
 	build.setOrigin(build.getLocalBounds().width / 2.0, build.getLocalBounds().height / 2.0);
 	build.setPosition(window.getSize().x / 2.0, 15.0);
 
 	player1deathstext.setFont(font);
-	player1deathstext.setFillColor(Color::Black);
 	player1deathstext.setCharacterSize(24);
 	player1deathstext.setPosition(7.0, 20.0);
 
 	player2deathstext.setFont(font);
-	player2deathstext.setFillColor(Color::Black);
 	player2deathstext.setCharacterSize(24);
 	
 	player1healthbar.setTexture(&healthImage);
@@ -41,8 +38,8 @@ void hud::updatehud(RenderWindow& window, Character& playerone, Character& playe
 {
 	player1healthbar.setTextureRect(IntRect((-playerone.health + 100) * 2.5, 0, healthImage.getSize().x / 2, healthImage.getSize().y));
 	player2healthbar.setTextureRect(IntRect((-playertwo.health + 100) * 2.5, 0, healthImage.getSize().x / 2, healthImage.getSize().y));
-	player1deathstext.setString("Player 1 Deaths: " + std::to_string(playerone.timesdead));
-	player2deathstext.setString("Player 2 Deaths: " + std::to_string(playertwo.timesdead));
+	player1deathstext.setString("PLAYER  1  DEATHS  " + std::to_string(playerone.timesdead));
+	player2deathstext.setString("PLAYER  2  DEATHS  " + std::to_string(playertwo.timesdead));
 	player2deathstext.setPosition(window.getSize().x - player2deathstext.getGlobalBounds().width - 10.0, 20.0); 
 	//applying setPosition here to for playertwo to avoid death counter outside the screen's view
 	if(buildState)
