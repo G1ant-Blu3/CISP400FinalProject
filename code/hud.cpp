@@ -3,7 +3,6 @@
 
 hud::hud(Window& window)
 {
-
 	font.loadFromFile("graphics/arial.ttf");
 	healthImage.loadFromFile("graphics/healthState.png");
 

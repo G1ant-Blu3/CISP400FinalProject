@@ -16,6 +16,7 @@ void engine::run() {
         playerOne.spawn(window);
         playerTwo.spawn(window);
         hud hud(window);
+        bool buildState = true;
 
         
         while (window.isOpen())
@@ -32,16 +33,35 @@ void engine::run() {
                 {
                     window.close();
                 }
+                else if(event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
+                {
+                    if(buildState == true)
+                    {
+                        buildState = false;
+                    }
+                    else if(buildState == false)
+                    {
+                        buildState = true;
+                    }   
+                }
             }
-            projmap.projecticalc(dtAsSeconds, window , playerOne, playerTwo, map, jfMilliseconds);
-            map.checkmouse(window);
-            playerOne.movement(dtAsSeconds, window, map, playerTwo);
-            playerTwo.movement(dtAsSeconds, window, map, playerOne);
-            animationtwo.calcanimationtwo(dtAsSeconds, playerTwo);
-            animationone.calcanimationone(dtAsSeconds,playerOne);
-            audio.calcaudioplayerone(window, playerOne);
-            audio.calcaudioplayertwo(window, playerTwo);
-            audio.calcaudiomap(map,projmap);
+
+            if(!buildState)
+            {
+                projmap.projecticalc(dtAsSeconds, window , playerOne, playerTwo, map, jfMilliseconds);
+                playerOne.movement(dtAsSeconds, window, map, playerTwo);
+                playerTwo.movement(dtAsSeconds, window, map, playerOne);
+                animationtwo.calcanimationtwo(dtAsSeconds, playerTwo);
+                animationone.calcanimationone(dtAsSeconds,playerOne);
+                audio.calcaudioplayerone(window, playerOne);
+                audio.calcaudioplayertwo(window, playerTwo);
+                audio.calcaudiomap(map,projmap);
+            }
+            else
+            {
+                map.checkmouse(window);
+            }
+
             window.clear();
             window.draw(s_background);
             hud.updatehud(window, playerOne, playerTwo);
