@@ -7,30 +7,19 @@ engine::engine() {
 }
 void engine::run() {
     {
-        Vector2f resolution;
+
         resolution.x = VideoMode::getDesktopMode().width;
         resolution.y = VideoMode::getDesktopMode().height;
 
 
         RenderWindow window(VideoMode(resolution.x, resolution.y), "Build N' Battle", Style::Default);
-        Texture background;
         background.loadFromFile("graphics/background.png");
-        Sprite s_background;
         s_background.setTexture(background);
-        drawmap map;
-        projectilemap projmap;
+
         hud hud(window);
-        audio audio;
-        animationone animationone;
-        animationtwo animationtwo;
-        PlayerOne playerOne;
-        PlayerTwo playerTwo;
         playerOne.spawn(window);
         playerTwo.spawn(window);
 
-        Clock proj;
-
-        Clock clock;
 
         while (window.isOpen())
         {

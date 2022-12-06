@@ -19,6 +19,19 @@ class engine {
 public:
 	engine();
 	void run();
+	RenderWindow window;
+	audio audio;
+	animationone animationone;
+	animationtwo animationtwo;
+	PlayerOne playerOne;
+	PlayerTwo playerTwo;
+	drawmap map;
+	projectilemap projmap;
+	Sprite s_background;
+	Texture background;
+	Vector2f resolution;
+	Clock proj;
+	Clock clock;
 private:
-
+	
 };
