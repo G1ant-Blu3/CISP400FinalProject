@@ -17,14 +17,12 @@ void engine::run() {
         playerTwo.spawn(window);
         hud hud(window);
 
-        
         while (window.isOpen())
         {
             Time jf = proj.getElapsedTime();
             Time dt = clock.restart();
             float dtAsSeconds = dt.asSeconds();
             float jfMilliseconds = jf.asMilliseconds();
-
             Event event;
             while (window.pollEvent(event))
             {
