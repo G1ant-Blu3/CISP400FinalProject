@@ -53,11 +53,12 @@ void engine::run() {
                 animationone.calcanimationone(dtAsSeconds,playerOne);
                 audio.calcaudioplayerone(window, playerOne);
                 audio.calcaudioplayertwo(window, playerTwo);
-                audio.calcaudiomap(map,projmap);
+                //audio.calcaudiomap(map,projmap);
             }
             else
             {
                 map.checkmouse(window);
+                audio.calcaudiomap(map,projmap);
             }
 
             window.clear();
