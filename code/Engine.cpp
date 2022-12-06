@@ -1,26 +1,23 @@
 #include "engine.h"
 using namespace sf;
 
-engine::engine() {
-
-
+engine::engine() 
+{
+    resolution.x = VideoMode::getDesktopMode().width;
+    resolution.y = VideoMode::getDesktopMode().height;
+    background.loadFromFile("graphics/background.png");
+    s_background.setTexture(background);
+    
+    
 }
 void engine::run() {
     {
-
-        resolution.x = VideoMode::getDesktopMode().width;
-        resolution.y = VideoMode::getDesktopMode().height;
-
-
         RenderWindow window(VideoMode(resolution.x, resolution.y), "Build N' Battle", Style::Default);
-        background.loadFromFile("graphics/background.png");
-        s_background.setTexture(background);
-
-        hud hud(window);
         playerOne.spawn(window);
         playerTwo.spawn(window);
+        hud hud(window);
 
-
+        
         while (window.isOpen())
         {
             Time jf = proj.getElapsedTime();
@@ -48,7 +45,6 @@ void engine::run() {
             window.clear();
             window.draw(s_background);
             hud.updatehud(window, playerOne, playerTwo);
-            
             for (int i = 0; i < map.tilevector.size(); i++) {
                 
                 window.draw(map.tilevector.at(i)->returnsprite());
@@ -56,7 +52,6 @@ void engine::run() {
             for (int i = 0; i < projmap.projectilevector.size(); i++) {
                 window.draw(projmap.projectilevector.at(i)->sprite);
             }
-            
             window.draw(playerOne.getSprite());
             window.draw(playerTwo.getSprite());
             window.display();
