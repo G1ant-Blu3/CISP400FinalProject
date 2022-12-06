@@ -18,14 +18,12 @@ void engine::run() {
         hud hud(window);
         bool buildState = true;
 
-        
         while (window.isOpen())
         {
             Time jf = proj.getElapsedTime();
             Time dt = clock.restart();
             float dtAsSeconds = dt.asSeconds();
             float jfMilliseconds = jf.asMilliseconds();
-
             Event event;
             while (window.pollEvent(event))
             {

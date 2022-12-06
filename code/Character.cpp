@@ -32,7 +32,7 @@ void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map,
         collision = true;
         offset = window.getSize().x - position.x; //sets offset to remaining value for player to stand at edge of right side
     }
-    
+    FloatRect top(Vector2f(position.x + 22, position.y - 20), Vector2f(characterSprite.getGlobalBounds().width + 2, characterSprite.getGlobalBounds().height));
     FloatRect rectangle(Vector2f(position.x + offset, position.y), Vector2f(characterSprite.getGlobalBounds().width + 22, characterSprite.getGlobalBounds().height));
     if(rectangle.intersects(otherPlayer.getSprite().getGlobalBounds()))
     {
@@ -43,11 +43,20 @@ void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map,
         if (rectangle.intersects(map.wallBounds[i]))
         {
             collision = true;
+            if(!top.intersects(map.wallBounds[i]))
+            {
+                position.y = position.y - 1;
+                characterSprite.setPosition(position);
+            }
+           
+            
         }
     }
+
     if (collision == false)
     {
-        position.x += offset;
+        
+        position.x += offset ;
         characterSprite.setPosition(position);
     } 
 }
@@ -62,8 +71,8 @@ void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, 
         collision = true;
         offset = -position.x; //sets offset to remaining value for player to stand at edge of left side
     }
-
-    FloatRect rectangle(Vector2f(position.x - 1, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
+    FloatRect top(Vector2f(position.x - 22, position.y - 20), Vector2f(characterSprite.getGlobalBounds().width + 20 , characterSprite.getGlobalBounds().height));
+    FloatRect rectangle(Vector2f(position.x - offset, position.y), Vector2f(characterSprite.getGlobalBounds().width, characterSprite.getGlobalBounds().height));
     if(rectangle.intersects(otherPlayer.characterSprite.getGlobalBounds())) // there is no need to add -offset to x if your just checking the closest position of x so -1 if the closest
         // dont need to recreate to global bounds of the character
     {
@@ -74,6 +83,11 @@ void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, 
         if(rectangle.intersects(map.wallBounds[i]))
         {
             collision = true;
+            if (!top.intersects(map.wallBounds[i]))
+            {
+                position.y = position.y - 1;
+                characterSprite.setPosition(position);
+            }
             
         }
     }
