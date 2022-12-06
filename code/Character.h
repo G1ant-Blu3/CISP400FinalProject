@@ -39,6 +39,7 @@ class Character
         bool justfired = false;
         bool justhit = false;
         bool justdiedaud = false;
+        bool otherdead = false;
     protected:
         
         

@@ -24,10 +24,16 @@ void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map, 
     {
         ifhit();
     }
-    if (isdead == true) 
+    if (isdead == true)
     {
+        otherPlayer.otherdead = true;
         spawn(window);
         isdead = false;
+    }
+    if (otherdead == true)
+    {
+        otherdead = false;
+        spawn(window);
     }
     jumpcalc(elapsedTime,window, map, otherPlayer); //has to be included in a loop in the game for physics to be calculated
     if(Keyboard::isKeyPressed(Keyboard::W))
