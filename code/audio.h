@@ -10,7 +10,9 @@ class audio {
 
 public:
 	audio();
-	void calcaudio(RenderWindow& window, Character& playerone, Character& playertwo, projectilemap& projmap, drawmap& map);
+	void calcaudioplayerone(RenderWindow& window, Character& playerone);
+	void calcaudioplayertwo(RenderWindow& window, Character& playertwo);
+	void calcaudiomap(drawmap& map, projectilemap& projmap);
 	
 	
 	sf::SoundBuffer bufferbackgound;
