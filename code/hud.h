@@ -21,7 +21,7 @@ public:
 	float player1heatlh;
 	float player2health;
 
-	void updatehud(RenderWindow& window, Character& playerone, Character& playertwo);
+	void updatehud(RenderWindow& window, Character& playerone, Character& playertwo, bool buildState);
 	
 };
 

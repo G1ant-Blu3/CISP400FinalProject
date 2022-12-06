@@ -64,7 +64,7 @@ void engine::run() {
 
             window.clear();
             window.draw(s_background);
-            hud.updatehud(window, playerOne, playerTwo);
+            hud.updatehud(window, playerOne, playerTwo, buildState);
             for (int i = 0; i < map.tilevector.size(); i++) {
                 
                 window.draw(map.tilevector.at(i)->returnsprite());
