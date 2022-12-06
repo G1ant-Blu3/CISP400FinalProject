@@ -33,6 +33,7 @@ void PlayerTwo::movement(float elapsedTime, RenderWindow& window, drawmap& map, 
     if (otherdead == true)
     {
         otherdead = false;
+        health = 100;
         spawn(window);
     }
     jumpcalc(elapsedTime, window, map, otherPlayer);

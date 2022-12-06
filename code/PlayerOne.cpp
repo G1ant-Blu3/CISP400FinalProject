@@ -27,12 +27,14 @@ void PlayerOne::movement(float elapsedTime, RenderWindow& window, drawmap& map, 
     if (isdead == true)
     {
         otherPlayer.otherdead = true;
+        health = 100;
         spawn(window);
         isdead = false;
     }
     if (otherdead == true)
     {
         otherdead = false;
+        health = 100;
         spawn(window);
     }
     jumpcalc(elapsedTime,window, map, otherPlayer); //has to be included in a loop in the game for physics to be calculated
