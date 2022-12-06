@@ -45,7 +45,7 @@ void Character::moveright(float elapsedTime, RenderWindow& window, drawmap& map,
             collision = true;
             if(!top.intersects(map.wallBounds[i]))
             {
-                position.y = position.y - 2;
+                position.y = position.y - 5;
                 characterSprite.setPosition(position);
             }
            
@@ -85,7 +85,7 @@ void Character::moveleft(float elapsedTime, RenderWindow& window, drawmap& map, 
             collision = true;
             if (!top.intersects(map.wallBounds[i]))
             {
-                position.y = position.y - 1;
+                position.y = position.y - 5;
                 characterSprite.setPosition(position);
             }
             
